@@ -4,27 +4,27 @@ ALTER TABLE `vw_ttd_performance` ADD INDEX `vw_ttd_performance_idx_id` (`adverti
 SELECT
         to_char(to_date(data.statistic_dt,
         'YYYY-MM-DD'),
-        'YYYYMMDD') AS 'Date',
+        'YYYYMMDD') AS "Date",
         CASE 
             WHEN data.creative_typ IS NULL THEN data.source_system_nm 
             WHEN data.source_system_nm IS NULL THEN data.creative_typ 
-        END AS 'Media',
+        END AS "Media",
         CASE 
             WHEN Sum(data.impressions_cnt) = 0 THEN Sum(data.impression_cnt) 
             WHEN Sum(data.impression_cnt) = 0 THEN Sum(data.impressions_cnt) 
-        END AS 'Total_Impressions',
+        END AS "Total_Impressions",
         CASE 
             WHEN Sum(data.clicks_cnt) = 0 THEN Sum(data.click_cnt) 
             WHEN Sum(data.click_cnt) = 0 THEN Sum(data.clicks_cnt) 
-        END AS 'Total_Clicks',
+        END AS "Total_Clicks",
         CASE 
             WHEN Sum(data.media_cost_usd_amt) = 0 THEN Sum(data.cost_amt) 
             WHEN Sum(data.cost_amt) = 0 THEN Sum(data.media_cost_usd_amt) 
-        END AS 'Total_Cost',
+        END AS "Total_Cost",
         CASE 
             WHEN Sum(data.player_views_cnt) = 0 THEN Sum(data.video_view_cnt) 
             WHEN Sum(data.video_view_cnt) = 0 THEN Sum(data.player_views_cnt) 
-        END AS 'Total_Video_Views' 
+        END AS "Total_Video_Views" 
     FROM
         (SELECT
             DISTINCT vw_ttd_performance.statistic_dt,
@@ -65,4 +65,4 @@ GROUP BY
     data.creative_typ,
     data.source_system_nm 
 ORDER BY
-    NULL
+    statistic_dt
