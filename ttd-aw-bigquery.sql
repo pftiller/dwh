@@ -1,16 +1,6 @@
 SELECT
    data.statistic_dt AS date,
-   CASE
-      WHEN
-         data.creative_typ IS NULL 
-      THEN
-         data.source_system_nm 
-      WHEN
-         data.source_system_nm IS NULL 
-      THEN
-         data.creative_typ 
-   END
-   AS platform, 
+   CONCAT(data.creative_typ, data.source_system_nm) AS platform,
    CASE
       WHEN
          Sum(data.impressions_cnt) = 0 
