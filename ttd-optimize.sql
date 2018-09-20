@@ -33,6 +33,7 @@ SELECT
         vw_ttd_performance 
     WHERE
         vw_ttd_performance.advertiser_id = "4xgixgw" 
+    AND statistic_dt > 2018-06-30    
     GROUP BY
         vw_ttd_performance.statistic_dt,
         vw_ttd_performance.source_system_nm,
