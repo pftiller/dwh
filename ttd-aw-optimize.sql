@@ -12,7 +12,7 @@ SELECT
         CASE 
             WHEN Sum(data.impressions_cnt) = 0 THEN Sum(data.impression_cnt) 
             WHEN Sum(data.impression_cnt) = 0 THEN Sum(data.impressions_cnt) 
-        END AS "Total_Impressions",
+        d "Total_Impressions",
         CASE 
             WHEN Sum(data.clicks_cnt) = 0 THEN Sum(data.click_cnt) 
             WHEN Sum(data.click_cnt) = 0 THEN Sum(data.clicks_cnt) 

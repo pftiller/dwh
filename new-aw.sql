@@ -1,4 +1,7 @@
-SELECT statistic_dt AS "date",
+SELECT  
+to_char(to_date(statistic_dt,
+'YYYY-MM-DD'),
+'YYYY-MM-DD') AS "date",
 source_system_nm AS "platform",
 account_nm AS "advertiser",
 device_nm AS "device",

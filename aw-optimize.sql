@@ -1,6 +1,3 @@
-
-ALTER TABLE `vw_search_ad_performance` ADD INDEX `vw_search_ad_perform_idx_id_dt_nm_nm_nm_nm` (`account_id`,`statistic_dt`,`account_nm`,`source_system_nm`,`device_nm`,`ad_group_nm`);
-
 SELECT
         DISTINCT to_char(to_date(vw_search_ad_performance.statistic_dt,
         'YYYY-MM-DD'),
